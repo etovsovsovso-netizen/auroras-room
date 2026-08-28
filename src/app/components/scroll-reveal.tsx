@@ -21,6 +21,7 @@ export function ScrollReveal() {
 
   useEffect(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const lightweightMode = window.matchMedia("(max-width: 768px), (pointer: coarse)").matches;
     const revealElements = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
     if (reduceMotion) {
       revealElements.forEach((element) => element.classList.add("is-visible"));
@@ -38,9 +39,15 @@ export function ScrollReveal() {
     );
     revealElements.forEach((element) => observer.observe(element));
 
-    const movingElements = motionGroups.flatMap(({ selector, distance, rotation }) =>
-      Array.from(document.querySelectorAll<HTMLElement>(selector)).map((element) => ({ element, distance, rotation })),
-    );
+    const movingElements = lightweightMode
+      ? []
+      : motionGroups.flatMap(({ selector, distance, rotation }) =>
+          Array.from(document.querySelectorAll<HTMLElement>(selector)).map((element) => ({ element, distance, rotation })),
+        );
+
+    if (!movingElements.length) {
+      return () => observer.disconnect();
+    }
 
     let frame = 0;
     let previousScroll = window.scrollY;
@@ -49,9 +56,15 @@ export function ScrollReveal() {
       const currentScroll = window.scrollY;
       document.body.dataset.scrollDirection = currentScroll >= previousScroll ? "down" : "up";
       previousScroll = currentScroll;
-      movingElements.forEach(({ element, distance, rotation }) => {
+      const positions = movingElements.map(({ element, distance, rotation }) => {
         const rect = element.getBoundingClientRect();
+        if (rect.bottom < -viewport || rect.top > viewport * 2) return null;
         const progress = Math.max(-1.35, Math.min(1.35, (rect.top + rect.height / 2 - viewport / 2) / viewport));
+        return { element, distance, rotation, progress };
+      });
+      positions.forEach((position) => {
+        if (!position) return;
+        const { element, distance, rotation, progress } = position;
         element.style.translate = `0 ${(-progress * distance).toFixed(2)}px`;
         element.style.rotate = `${(-progress * rotation).toFixed(2)}deg`;
       });
