@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import auroraImage from "../../../public/aurora.jpg";
 import Link from "next/link";
 import { SiteHeader } from "../components/site-header";
 import { SiteFooter } from "../components/site-footer";
@@ -27,7 +28,7 @@ export default function AboutPage() {
           <div className="aboutPageTitle"><p className="eyebrow">nice to meet you</p><h1>Аврора.<br /><em>Человек между<br />небом и землёй.</em></h1><p>Таролог, путешественница, автор закрытого пространства и тот человек, которому можно принести свой самый запутанный вопрос.</p></div>
           <div className="aboutPagePortrait">
             <div className="portraitHalo" aria-hidden="true">✦</div>
-            <div className="portraitTall" style={{ position: "relative" }}><Image src="/aurora.jpg" alt="Аврора" fill priority sizes="(max-width: 800px) 82vw, 470px" /></div>
+            <div className="portraitTall" style={{ position: "relative" }}><Image src={auroraImage} alt="Аврора" fill priority sizes="(max-width: 800px) 82vw, 470px" /></div>
             <span className="photoLabel">TAROT READER<br />WORLD EXPLORER<br />CAT PERSON</span>
             <span className="photoCat" aria-hidden="true">🐈‍⬛</span>
           </div>
