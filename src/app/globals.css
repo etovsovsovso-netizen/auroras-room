@@ -551,6 +551,7 @@ footer { padding: 45px 0 28px; color: #f6f0e7; background: var(--ink); }
 /* Aurora's room — purple vintage edition */
 body { overflow-x:hidden; font-family:var(--font-body),Arial,sans-serif; background:#f6f0e8; }
 body::before { content:""; position:fixed; z-index:19; inset:0; pointer-events:none; opacity:.11; background-image:radial-gradient(circle at 17% 23%,rgba(44,27,56,.48) 0 .7px,transparent 1px),radial-gradient(circle at 68% 71%,rgba(255,255,255,.8) 0 .8px,transparent 1.2px); background-size:17px 19px,23px 29px; mix-blend-mode:soft-light; }
+main > section:not(:first-child) { content-visibility:auto; contain-intrinsic-size:auto 900px; }
 ::selection { color:#fff; background:#6e588d; }
 h1,h2,h3,.brand,.miniStats b,.serviceTop>span,.routeSteps b,.aboutSignature,.clubPrice b,.clubTicket>p,.note span,.faqList summary,.menuLinks b,.menuIntro h2,.formatList h3,.chooseGrid h3,.servicePageLinks h3,.bigParagraph,.numberGrid b,.principleGrid h3,.postcard b,.deckCard b,.doubtAnswer p,.individualTicket h3,.individualTicket dd,.trainingFaq summary,.clubHeroActions b,.insideGrid h3,.calendarTitle,.monthCopy li b,.ticketPrice b { font-family:var(--font-display),Georgia,serif; }
 .brand { font-weight:600; }
@@ -718,6 +719,17 @@ h2 em,.finalInner h2 em,.clubSection h2 em,.trainingTitle h1 em,.compactCtaYello
   .ticketPrice b { font-size:72px; }
   .footerTop { grid-template-columns:1fr; }
   .footerTop > div { grid-column:auto;grid-row:auto; }
+}
+
+@media (max-width:768px), (pointer:coarse) {
+  html { scroll-behavior:auto; }
+  body::before { display:none; }
+  .menuButton,.stickerNote { backdrop-filter:none; }
+  .hero::before,.innerHero::before,.aboutPageHero::before,.clubHero::before,.trainingHero::before,
+  .hero::after,.innerHero::after,.aboutPageHero::after,.clubHero::after,.trainingHero::after { mix-blend-mode:normal; }
+  [data-reveal] { transition-duration:.5s; }
+  .orbitOne,.orbitTwo,.clouds i,.sunDisc,.portraitHalo,.travelOrbit,.bigMoon,
+  .flyingCard,.postcard,.deckCard,.clubHeroCloud,.doubtCloud span,.moduleIcon { animation:none !important; }
 }
 
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; animation: none !important; } [data-reveal]{opacity:1;transform:none;} }
