@@ -56,6 +56,8 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="homeMarquee" aria-hidden="true"><div>AURORA’S ROOM ✦ ТАРО ✦ РИТУАЛЫ ✦ ПУТЕШЕСТВИЯ ✦ БОЖЕСТВЕННОЕ ВНУТРИ ✦ МЕМНЫЕ КОТЫ ✦ AURORA’S ROOM ✦ ТАРО ✦ РИТУАЛЫ ✦</div></div>
+
       <section className="recognition">
         <div className="shell recognitionGrid" data-reveal>
           <div>
@@ -127,6 +129,30 @@ export default function Home() {
             <a className="textLink ink" href={channel} target="_blank" rel="noreferrer">читать aurora’s room ↗</a>
             <Link className="morePageLink" href="/about">больше обо мне →</Link>
           </div>
+        </div>
+      </section>
+
+      <section className="divineSection">
+        <div className="divineCloud divineCloudLeft" aria-hidden="true" />
+        <div className="divineCloud divineCloudRight" aria-hidden="true" />
+        <div className="shell" data-reveal>
+          <div className="divineHeading">
+            <div><p className="eyebrow">небо, дорога и немного магии</p><h2>Три части<br /><em>вселенной Авроры</em></h2></div>
+            <p>Здесь духовное не прячется от обычной жизни: богини соседствуют с аэропортами, лунные циклы — с решениями, а серьёзные знаки иногда приходят в виде очень мемного кота.</p>
+          </div>
+          <div className="divineScene">
+            <article className="divineCard divineCardMoon">
+              <span aria-hidden="true">☾</span><small>DIVINE / INNER LIGHT</small><h3>Божественное</h3><p>Практики и образы, которые помогают услышать интуицию и вспомнить о собственной силе.</p>
+            </article>
+            <article className="divineCard divineCardRoad">
+              <span aria-hidden="true">✦</span><small>WORLD / NEW OPTICS</small><h3>Путешествия</h3><p>Новые города учат смотреть шире: у одной истории всегда существует больше одного маршрута.</p>
+            </article>
+            <article className="divineCard divineCardCat">
+              <span aria-hidden="true">🐈‍⬛</span><small>SIGN / VERY SERIOUS</small><h3>Котики</h3><p>Чтобы на пути к себе не забывать смеяться, дышать и иногда просто лечь на всё красивым боком.</p>
+            </article>
+            <div className="divineOrbit" aria-hidden="true">AURORA • WORLD • HOME •</div>
+          </div>
+          <div className="divineActions"><Link href="/about">узнать Аврору ближе →</Link><a href={channel} target="_blank" rel="noreferrer">смотреть жизнь в канале ↗</a></div>
         </div>
       </section>
 
