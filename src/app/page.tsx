@@ -1,4 +1,5 @@
 import Image from "next/image";
+import auroraImage from "../../public/aurora.jpg";
 import Link from "next/link";
 import { SiteHeader } from "./components/site-header";
 import { SiteFooter } from "./components/site-footer";
@@ -44,7 +45,7 @@ export default function Home() {
             <div className="orbit orbitOne" />
             <div className="orbit orbitTwo" />
             <div className="portraitFrame" style={{ position: "relative" }}>
-              <Image src="/aurora.jpg" alt="Аврора — таролог и автор aurora’s room" fill priority sizes="(max-width: 800px) 78vw, 390px" />
+              <Image src={auroraImage} alt="Аврора — таролог и автор aurora’s room" fill priority sizes="(max-width: 800px) 78vw, 390px" />
             </div>
             <div className="sticker stickerTop">guided by<br />the universe ✦</div>
             <div className="sticker stickerCat" aria-hidden="true"><span>☁</span> 🐈‍⬛</div>
@@ -115,7 +116,7 @@ export default function Home() {
         <div className="shell aboutGrid" data-reveal>
           <div className="aboutArt">
             <div className="sunDisc" aria-hidden="true">✦</div>
-            <div className="aboutPortrait" style={{ position: "relative" }}><Image src="/aurora.jpg" alt="Аврора" fill sizes="(max-width: 800px) 85vw, 480px" /></div>
+            <div className="aboutPortrait" style={{ position: "relative" }}><Image src={auroraImage} alt="Аврора" fill sizes="(max-width: 800px) 85vw, 480px" /></div>
             <span className="passportStamp">5 YEARS<br />OF MAGIC</span>
             <span className="aboutCat" aria-hidden="true">🐈<small>chief<br />assistant</small></span>
           </div>
